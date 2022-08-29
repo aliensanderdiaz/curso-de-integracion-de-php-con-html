@@ -1,0 +1,1434 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <title>
+    Curso de Integración de PHP con HTML</title>
+</head>
+
+<body>
+  <header class="text-center">
+    <h1>
+      Curso de Integración de PHP con HTML</h1>
+  </header>
+  <main class="container">
+    <hr>
+
+    <section class="row">
+      <article class="col">
+        <h2>Sección 1 de 24 - ¿Cómo se renderiza una página web en mi computadora?</h2>
+
+      </article>
+    </section>
+
+    <hr>
+
+    <section class="row">
+      <article class="col">
+        <h2>Sección 2 de 24 - Levantando un servidor local</h2>
+
+      </article>
+    </section>
+
+    <hr>
+
+    <section class="row">
+      <article class="col">
+        <h2>Sección 3 de 24 - PHP como preprocesador de HTML</h2>
+        <pre class="prettyprint">
+
+                  &lth1>Hola, esto es HTML desde PHP&lt/h1>
+                  &lt?php
+                      echo "&ltp>Ahora esto se está imprimiendo con PHP&lt/p>";
+                  ?>
+            </pre>
+      </article>
+    </section>
+
+    <hr>
+
+    <section class="row">
+      <article class="col">
+        <h2>Sección 4 de 24 - Imprime texto y etiquetas HTML</h2>
+        <pre class="prettyprint">
+
+          &lt?php
+              $nombre = "Mr. Michi";
+          ?>
+          &lt!DOCTYPE html>
+          &lthtml lang="en">
+          &lthead>
+              &ltmeta charset="UTF-8">
+              &ltmeta http-equiv="X-UA-Compatible" content="IE=edge">
+              &ltmeta name="viewport" content="width=device-width, initial-scale=1.0">
+              &lttitle>Imprime Texto y etiquetas con PHP&lt/title>
+          &lt/head>
+          &ltbody>
+              &lt?php echo "&ltb>Hola, mamá estoy aprendiendo php en HTML&lt/b>"; ?>
+              &lt?= "&lti>Esta es otra forma de imprimir texo y etiquetas con HTML&lt/i>" ?>
+              &lth1>Hola &lt?= $nombre ?>&lt/h1>
+          &lt/body>
+          &lt/html>
+            </pre>
+      </article>
+    </section>
+
+    <hr>
+
+    <section class="row">
+      <article class="col">
+        <h2>Sección 5 de 24 - Condicionales</h2>
+        <pre class="prettyprint">
+
+              &lt?php
+              $se_hablo_de_bruno = false;
+              ?>
+              
+              &lt!DOCTYPE html>
+              &lthtml lang="en">
+              
+              &lthead>
+                  &ltmeta charset="UTF-8">
+                  &ltmeta http-equiv="X-UA-Compatible" content="IE=edge">
+                  &ltmeta name="viewport" content="width=device-width, initial-scale=1.0">
+                  &lttitle>Condicionales&lt/title>
+              &lt/head>
+              
+              &ltbody>
+                  &lth1>ESTO NO SE DEBE HACER&lt/h1>
+                  &lt?php
+                  if (true) {
+                      echo "Esta condicional es verdadera";
+                  }
+                  if (false) {
+                      echo "Esta condicional es falsa";
+                  }
+                  echo "&ltbr>";
+                  if ($se_hablo_de_bruno) {
+                      echo ":( Por favor no hables de bruno";
+                  } else {
+                      echo "Que bien! No se debe hablar de bruno";
+                  }
+                  echo "&ltbr>";
+                  ?>
+              
+                  &lth1>Esto es aceptable&lt/h1>
+                  &lt?php if ($se_hablo_de_bruno) { ?>
+                      &ltp>:( Por favor no hables de bruno&lt/p>
+                  &lt?php } else { ?>
+                      &ltp>Que bien! No se debe hablar de bruno&lt/p>
+                  &lt?php } ?>
+              
+                  &lth1>Esta es la mejor forma&lt/h1>
+              
+                  &lt?php if ($se_hablo_de_bruno) : ?>
+                      &ltp>:( Por favor no hables de bruno&lt/p>
+                  &lt?php else : ?>
+                      &ltp>Que bien! No se debe hablar de bruno&lt/p>
+                  &lt?php endif; ?>
+              &lt/body>
+              
+              &lt/html>
+            </pre>
+      </article>
+    </section>
+
+    <hr>
+
+    <section class="row">
+      <article class="col">
+        <h2>Sección 6 de 24 - Ciclos</h2>
+        <pre class="prettyprint">
+
+              &lt?php 
+              $usuarios = array("Mr. Michi", "Alexander", "Juana");
+          ?>
+          
+          &lt!DOCTYPE html>
+          &lthtml lang="en">
+          
+          &lthead>
+              &ltmeta charset="UTF-8">
+              &ltmeta http-equiv="X-UA-Compatible" content="IE=edge">
+              &ltmeta name="viewport" content="width=device-width, initial-scale=1.0">
+              &lttitle>Ciclos&lt/title>
+          &lt/head>
+          
+          &ltbody>
+              &ltul>
+                  &lt?php for ($x = 0; $x &lt 10; $x++) : ?>
+                      &ltli>&lt?= $x ?>&lt/li>
+                  &lt?php endfor; ?>
+          
+                  &lt?php while (false) : ?>
+                      &ltli>cualquier cosa&lt/li>
+                  &lt?php endwhile; ?>
+              &lt/ul>
+          
+              &lth1>Lista de Usuarios&lt/h1>
+              &ltul>
+                  &lt?php foreach ($usuarios as $usuario): ?>
+                      &ltli>&lt?= $usuario ?>&lt/li>
+                  &lt?php endforeach; ?>
+              &lt/ul>
+          &lt/body>
+          
+          &lt/html>
+            </pre>
+      </article>
+    </section>
+
+    <hr>
+
+    <section class="row">
+      <article class="col">
+        <h2>Sección 7 de 24 - ¿Cómo pasar variables de PHP a JavaScript?</h2>
+        <pre class="prettyprint">
+
+              &lt?php
+              $usuarios = array(
+                  array(
+                      "id" => 0,
+                      "username" => "Mr.Michi"
+                  ),
+                  array(
+                      "id" => 1,
+                      "username" => "Alexander"
+                  ),
+                  array(
+                      "id" => 2,
+                      "username" => "Juana"
+                  ),
+              );
+          
+              $edad_de_pepito = 12;
+          ?>
+          
+          &lt!DOCTYPE html>
+          &lthtml lang="en">
+          &lthead>
+              &ltmeta charset="UTF-8">
+              &ltmeta http-equiv="X-UA-Compatible" content="IE=edge">
+              &ltmeta name="viewport" content="width=device-width, initial-scale=1.0">
+              &lttitle>Pasar variables de PHP a Javascript&lt/title>
+          &lt/head>
+          &ltbody>
+              &ltscript>
+                  let users = JSON.parse('&lt?= json_encode($usuarios) ?>');
+                  let edadDePepito = &lt?= $edad_de_pepito ?>;
+                  console.log({
+                      users,
+                      edadDePepito
+                  });
+              &lt/script>
+          &lt/body>
+          &lt/html>
+            </pre>
+      </article>
+    </section>
+
+    <hr>
+
+    <section class="row">
+      <article class="col">
+        <h2>Sección 8 de 24 - Evita el código espagueti</h2>
+
+      </article>
+    </section>
+
+    <hr>
+
+    <section class="row">
+      <article class="col">
+        <h2>Sección 9 de 24 - Refactorizando código espagueti</h2>
+        <pre class="prettyprint">
+
+              &lt!DOCTYPE html>
+              &lthtml lang="en">
+              &lthead>
+                  &ltmeta charset="UTF-8">
+                  &ltmeta http-equiv="X-UA-Compatible" content="IE=edge">
+                  &ltmeta name="viewport" content="width=device-width, initial-scale=1.0">
+                  &lttitle>No hagas esto&lt/title>
+              &lt/head>
+              &ltbody>
+                  &lth1>Tabla del 9&lt/h1>
+              
+                  &ltul>
+              
+                      &lt?php
+                          for ($i=0; $i &lt 10; $i++) { 
+                              echo "&ltli>" . "9 x ". ($i + 1) . " = " . ( 9 * ($i + 1)) . "&lt/li>";
+                          }
+                      ?>
+              
+                  &lt/ul>
+              &lt/body>
+              &lt/html>
+            </pre>
+
+        <pre class="prettyprint">
+
+              &lt?php
+
+              $tabla_del_9 = [];
+              
+              for ($i=1; $i &lt= 10; $i++) { 
+                  $resultado = $i * 9;
+                  $texto = "9 x $i = $resultado";
+                  array_push($tabla_del_9, $texto);
+              }
+              
+              // // Depurar
+              // echo "&ltpre>";
+              // var_dump($tabla_del_9);
+              // echo "&lt/pre>";
+              
+              // die();
+              
+              ?>
+              
+              &lt!DOCTYPE html>
+              &lthtml lang="en">
+              &lthead>
+                  &ltmeta charset="UTF-8">
+                  &ltmeta http-equiv="X-UA-Compatible" content="IE=edge">
+                  &ltmeta name="viewport" content="width=device-width, initial-scale=1.0">
+                  &lttitle>Cómo mejorarlo?&lt/title>
+              &lt/head>
+              &ltbody>
+                  &lth1>Tabla del 9&lt/h1>
+              
+                  &lth2>Mejor forma con la lógica al inicio&lt/h2>
+              
+                  &ltul>
+                      &lt?php foreach ($tabla_del_9 as $texto): ?>
+                          &ltli>&lt?= $texto ?>&lt/li>
+                      &lt?php endforeach; ?>
+                  &lt/ul>
+              
+                  &lth2>Esta es una mejor forma, pero aún hay reparos&lt/h2>
+              
+                  &ltul>
+                      &lt?php for($x=1; $x &lt= 10; $x++): ?>
+                          &ltli>9 x &lt?= $x ?> = &lt?= 9 * $x ?>&lt/li>
+                      &lt?php endfor; ?>
+                  &lt/ul>
+              
+                  &lth2>De esta manera no... NUNCA mezclar PHP y HTML en las mismas lineas&lt/h2>
+              
+                  &ltul>
+              
+                      &lt?php
+                          for ($i=0; $i &lt 10; $i++) { 
+                              echo "&ltli>" . "9 x ". ($i + 1) . " = " . ( 9 * ($i + 1)) . "&lt/li>";
+                          }
+                      ?>
+              
+                  &lt/ul>
+              &lt/body>
+              &lt/html>
+            </pre>
+      </article>
+    </section>
+
+    <hr>
+
+    <section class="row">
+      <article class="col">
+        <h2>Sección 10 de 24 - Cómo obtener una solicitud al servidor con PHP</h2>
+        <pre class="prettyprint">
+
+              &lt!DOCTYPE html>
+              &lthtml lang="en">
+              &lthead>
+                  &ltmeta charset="UTF-8">
+                  &ltmeta http-equiv="X-UA-Compatible" content="IE=edge">
+                  &ltmeta name="viewport" content="width=device-width, initial-scale=1.0">
+                  &lttitle>Document&lt/title>
+              &lt/head>
+              &ltbody>
+                  &ltscript>
+                      const formData = new FormData();
+              
+                      formData.append('nombre', 'Mr.michi');
+                      formData.append('edad', '14');
+              
+                      fetch("010-server.php?color=naranja", {
+                          body: formData,
+                          method: "POST"
+                      })
+                      .then( res => res.text())
+                      .then( data => {
+                          // console.log({ data })
+                          console.log( data )
+                      })
+                  &lt/script>
+              &lt/body>
+              &lt/html>
+            </pre>
+
+        <pre class="prettyprint">
+
+              &lt?php 
+              // echo "&ltpre>";
+              var_dump($_POST);
+              var_dump($_GET);
+              var_dump($_REQUEST);
+              // echo "&lt/pre>";
+            </pre>
+      </article>
+    </section>
+
+    <hr>
+
+    <section class="row">
+      <article class="col">
+        <h2>Sección 11 de 24 - Envío de un formulario a través de GET</h2>
+        <pre class="prettyprint">
+
+              &lt!DOCTYPE html>
+              &lthtml lang="en">
+              &lthead>
+                  &ltmeta charset="UTF-8">
+                  &ltmeta http-equiv="X-UA-Compatible" content="IE=edge">
+                  &ltmeta name="viewport" content="width=device-width, initial-scale=1.0">
+                  &lttitle>Formulario por GET&lt/title>
+              &lt/head>
+              &ltbody>
+                  &ltform action="./011-server.php" method="get">
+                      &ltlabel for="nombre">Nombre&lt/label>
+                      &ltinput type="text" name="nombre" id="nombre">
+                      &lt!-- &ltbr> -->
+                      &ltlabel for="edad">Edad&lt/label>
+                      &ltinput type="text" name="edad" id="edad">
+                      &lt!-- &ltbr> -->
+                      &ltbutton type="submit">Mandar Formulario&lt/button>
+                  &lt/form>
+              &lt/body>
+              &lt/html>
+            </pre>
+        <pre class="prettyprint">
+
+              &lt?php
+
+              // echo "&ltpre>";
+              // var_dump($_GET);
+              // echo "&lt/pre>";
+              
+              $nombre = $_GET["nombre"];
+              $edad = $_GET["edad"];
+              
+              echo "El usuario $nombre tiene $edad años";
+            </pre>
+      </article>
+    </section>
+
+    <hr>
+
+    <section class="row">
+      <article class="col">
+        <h2>Sección 12 de 24 - Envío de un formulario a través de POST</h2>
+        <pre class="prettyprint">
+
+              &lt!DOCTYPE html>
+              &lthtml lang="en">
+              &lthead>
+                  &ltmeta charset="UTF-8">
+                  &ltmeta http-equiv="X-UA-Compatible" content="IE=edge">
+                  &ltmeta name="viewport" content="width=device-width, initial-scale=1.0">
+                  &lttitle>Formulario por POST&lt/title>
+              &lt/head>
+              &ltbody>
+                  &ltform action="./012-server.php" method="post">
+                      &ltlabel for="nombre">Nombre&lt/label>
+                      &ltinput type="text" name="nombre" id="nombre">
+                      &lt!-- &ltbr> -->
+                      &ltlabel for="edad">Edad&lt/label>
+                      &ltinput type="text" name="edad" id="edad">
+                      &lt!-- &ltbr> -->
+                      &ltbutton type="submit">Mandar Formulario&lt/button>
+                  &lt/form>
+              &lt/body>
+              &lt/html>
+            </pre>
+        <pre class="prettyprint">
+
+              &lt?php
+
+              echo "&ltpre>";
+              var_dump($_POST);
+              echo "&lt/pre>";
+              
+              $nombre = $_POST["nombre"];
+              $edad = $_POST["edad"];
+              
+              echo "El usuario $nombre tiene $edad años";
+            </pre>
+      </article>
+    </section>
+
+    <hr>
+    
+    <section class="row">
+      <article class="col">
+        <h2>Sección 13 de 24 - Envío de imágenes</h2>
+        <pre class="prettyprint">
+                
+          &lt!DOCTYPE html>
+          &lthtml lang="en">
+          &lthead>
+              &ltmeta charset="UTF-8">
+              &ltmeta http-equiv="X-UA-Compatible" content="IE=edge">
+              &ltmeta name="viewport" content="width=device-width, initial-scale=1.0">
+              &lttitle>Formulario por POST&lt/title>
+          &lt/head>
+          &ltbody>
+              &ltform action="./013-server.php" method="post" enctype="multipart/form-data">
+                  &ltlabel for="nombre">Nombre&lt/label>
+                  &ltinput type="text" name="nombre" id="nombre">
+                  &lt!-- &ltbr> -->
+                  &ltlabel for="image">Imagen&lt/label>
+                  &ltinput type="file" name="image" id="image">
+                  &lt!-- &ltbr> -->
+                  &ltbutton type="submit">Mandar Formulario&lt/button>
+              &lt/form>
+          &lt/body>
+          &lt/html>
+        </pre>
+
+        <pre class="prettyprint">
+                
+          &lt?php
+
+          echo "&ltpre>";
+          var_dump($_FILES);
+          echo "&lt/pre>";
+          
+          $basename = $_FILES["image"]["name"];
+          echo $basename;
+        </pre>
+      </article>
+    </section>
+
+    <hr>
+    
+    <section class="row">
+      <article class="col">
+        <h2>Sección 14 de 24 - Guardando imágenes en el servidor</h2>
+        <pre class="prettyprint">
+                
+          &lt!DOCTYPE html>
+          &lthtml lang="en">
+          &lthead>
+              &ltmeta charset="UTF-8">
+              &ltmeta http-equiv="X-UA-Compatible" content="IE=edge">
+              &ltmeta name="viewport" content="width=device-width, initial-scale=1.0">
+              &lttitle>Formulario por POST&lt/title>
+          &lt/head>
+          &ltbody>
+              &ltform action="./014-server.php" method="post" enctype="multipart/form-data">
+                  &ltlabel for="nombre">Nombre&lt/label>
+                  &ltinput type="text" name="nombre" id="nombre">
+                  &lt!-- &ltbr> -->
+                  &ltlabel for="image">Imagen&lt/label>
+                  &ltinput type="file" name="image" id="image">
+                  &lt!-- &ltbr> -->
+                  &ltbutton type="submit">Mandar Formulario&lt/button>
+              &lt/form>
+          &lt/body>
+          &lt/html>
+        </pre>
+
+        <pre class="prettyprint">
+                
+          &lt?php
+
+          echo "&ltpre>";
+          var_dump($_FILES);
+          echo "&lt/pre>";
+          
+          $basename = $_FILES["image"]["name"];
+          $image = $_FILES["image"]["tmp_name"];
+          $ruta_a_subir = "images/$basename";
+          
+          move_uploaded_file($image, $ruta_a_subir);
+          echo $basename;
+          
+          ?>
+          
+          &lt!DOCTYPE html>
+          &lthtml lang="en">
+          &lthead>
+              &ltmeta charset="UTF-8">
+              &ltmeta http-equiv="X-UA-Compatible" content="IE=edge">
+              &ltmeta name="viewport" content="width=device-width, initial-scale=1.0">
+              &lttitle>Document&lt/title>
+          &lt/head>
+          &ltbody>
+              &ltimg src="&lt?= $ruta_a_subir ?>" alt="&lt?= $basename ?>">
+          &lt/body>
+          &lt/html>
+        </pre>
+      </article>
+    </section>
+
+    <hr>
+    
+    <section class="row">
+      <article class="col">
+        <h2>Sección 15 de 24 - Tipos de inputs</h2>
+        <pre class="prettyprint">
+                
+          &lt!DOCTYPE html>
+          &lthtml lang="en">
+          &lthead>
+              &ltmeta charset="UTF-8">
+              &ltmeta http-equiv="X-UA-Compatible" content="IE=edge">
+              &ltmeta name="viewport" content="width=device-width, initial-scale=1.0">
+              &lttitle>Formulario por POST&lt/title>
+          &lt/head>
+          &ltbody>
+              &ltform action="./015-server.php" method="post" enctype="multipart/form-data">
+                  &lt!-- input simple -->
+                  &ltlabel for="nombre">Nombre&lt/label>
+                  &ltinput type="text" name="nombre" id="nombre">
+                  &ltbr>
+                  &ltbr>
+                  &lt!-- arreglos -->
+                  &ltlabel for="personas">Personas - Arreglo&lt/label>
+                  &ltinput type="text" name="personas[]">
+                  &ltinput type="text" name="personas[]">
+                  &ltinput type="text" name="personas[]">
+                  &ltbr>
+                  &ltbr>
+                  &lt!-- arreglos asociativos -->
+                  &ltlabel>Persona - Arreglos asociativos&lt/label>
+                  &ltinput type="text" name="persona[nombre]">
+                  &ltinput type="email" name="persona[email]">
+                  &ltinput type="number" name="persona[edad]">
+                  &ltbr>
+                  &ltbr>
+                  &ltlabel>Checkbox&lt/label>
+                  &ltinput type="checkbox" name="checkbox1">
+                  &ltinput type="checkbox" name="checkbox2" value="Este check fue clickado">
+                  &ltinput type="checkbox" name="checkbox3">
+                  &ltbr>
+                  &ltbr>
+                  &ltbutton type="submit">Mandar Formulario&lt/button>
+              &lt/form>
+              &ltp>NOTA: Los checkbox no clickados nunca llegan al servidor.&lt/p>
+          &lt/body>
+          &lt/html>
+        </pre>
+
+        <pre class="prettyprint">
+                
+          &lt?php
+
+          echo "&ltpre>";
+          print_r($_POST);
+          echo "&lt/pre>";
+        </pre>
+      </article>
+    </section>
+
+    <hr>
+    
+    <section class="row">
+      <article class="col">
+        <h2>Sección 16 de 24 - Otros tipos de inputs</h2>
+        <pre class="prettyprint">
+                
+          &lt!DOCTYPE html>
+          &lthtml lang="en">
+          
+          &lthead>
+              &ltmeta charset="UTF-8">
+              &ltmeta http-equiv="X-UA-Compatible" content="IE=edge">
+              &ltmeta name="viewport" content="width=device-width, initial-scale=1.0">
+              &lttitle>Formulario por POST&lt/title>
+          &lt/head>
+          
+          &ltbody>
+              &ltform action="./016-server.php" method="post" enctype="multipart/form-data">
+                  &lt!-- radio -->
+                  &ltlabel>Input Radio&lt/label>
+                  &ltbr>
+                  &ltlabel for="colombia">Colombia&lt/label>
+                  &ltinput type="radio" name="pais" value="Colombia" id="colombia">
+          
+                  &ltlabel for="ecuador">Ecuador&lt/label>
+                  &ltinput type="radio" name="pais" value="Ecuador" id="ecuador">
+          
+                  &ltlabel for="peru">Peru&lt/label>
+                  &ltinput type="radio" name="pais" value="Peru" id="peru">
+                  &ltbr>
+                  &ltbr>
+                  &ltlabel>Multiples Archivos&lt/label>
+                  &ltlabel for="images">images&lt/label>
+                  &ltinput type="file" multiple name="galeria[]" id="images">
+          
+                  &ltbr>
+                  &ltbr>
+                  &ltbutton type="submit">Mandar Formulario&lt/button>
+              &lt/form>
+          &lt/body>
+          
+          &lt/html>
+        </pre>
+
+        <pre class="prettyprint">
+                
+          &lt?php
+
+          echo "&ltpre>";
+          print_r($_POST);
+          print_r($_FILES);
+          echo "&lt/pre>";
+        </pre>
+      </article>
+    </section>
+
+    <hr>
+    
+    <section class="row">
+      <article class="col">
+        <h2>Sección 17 de 24 - Validar si un formulario ha sido enviado</h2>
+        <pre class="prettyprint">
+                
+          &lt!DOCTYPE html>
+          &lthtml lang="en">
+          
+          &lthead>
+              &ltmeta charset="UTF-8">
+              &ltmeta http-equiv="X-UA-Compatible" content="IE=edge">
+              &ltmeta name="viewport" content="width=device-width, initial-scale=1.0">
+              &lttitle>Validando el envío de un formulario&lt/title>
+          &lt/head>
+          
+          &ltbody>
+              &ltform action="./017-server.php" method="post">
+                  &ltlabel for="nombre">Nombre&lt/label>
+                  &ltinput type="text" name="nombre" id="nombre">
+          
+          
+                  &ltbr>
+                  &ltbr>
+                  &ltbutton name="form" type="submit">Mandar Formulario&lt/button>
+              &lt/form>
+          &lt/body>
+          
+          &lt/html>
+        </pre>
+
+        <pre class="prettyprint">
+                
+          &lt?php
+
+          echo "&ltpre>";
+          print_r($_POST);
+          // print_r($_FILES);
+          echo "&lt/pre>";
+          
+          if (isset($_POST["nombre"]) && !empty($_POST["nombre"])) {
+              echo "¡Hola " . $_POST["nombre"] . "!";
+          } else {
+              echo "No mandaste nada";
+          }
+          
+          if (isset($_POST["form"])) {
+              echo "Todo el formulario fue mandado";
+          } else {
+              echo "No se mando ningun formulario";
+          }
+          
+        </pre>
+        
+      </article>
+    </section>
+
+    <hr>
+    
+    <section class="row">
+      <article class="col">
+        <h2>Sección 18 de 24 - Sanitizando datos de mi formulario</h2>
+        <pre>
+          &lt!DOCTYPE html>
+          &lthtml lang="en">
+          
+          &lthead>
+              &ltmeta charset="UTF-8">
+              &ltmeta http-equiv="X-UA-Compatible" content="IE=edge">
+              &ltmeta name="viewport" content="width=device-width, initial-scale=1.0">
+              &lttitle>Validando el envío de un formulario&lt/title>
+          &lt/head>
+          
+          &ltbody>
+              &ltform action="./018-server.php" method="post">
+                  &ltlabel for="nombre">Nombre&lt/label>
+                  &ltinput type="text" name="nombre" id="nombre">
+                  &ltbr>
+                  &ltlabel for="username">username&lt/label>
+                  &ltinput type="text" name="username" id="username">
+                  &ltbr>
+                  &ltlabel for="email">email&lt/label>
+                  &ltinput type="text" name="email" id="email">
+                  &ltbr>
+                  &ltlabel for="edad">edad&lt/label>
+                  &ltinput type="text" name="edad" id="edad">
+          
+          
+                  &ltbr>
+                  &ltbr>
+                  &ltbutton name="form" type="submit">Mandar Formulario&lt/button>
+              &lt/form>
+          &lt/body>
+          
+          &lt/html>
+        </pre>
+
+        <pre class="prettyprint">
+                
+          &lt?php
+
+          echo "&ltpre>";
+          print_r($_POST);
+          // print_r($_FILES);
+          echo "&lt/pre>";
+          
+          $nombre = $_POST["nombre"];
+          $username = $_POST["username"];
+          $email = $_POST["email"];
+          $edad = $_POST["edad"];
+          
+          $htmlentities = htmlentities($nombre);
+          $addslashes = addslashes($username);
+          $only_letters = preg_replace("/\d/", "", $username);
+          $only_numbers = preg_replace("/\D/", "", $username);
+          $email_filter = filter_var($email, FILTER_SANITIZE_EMAIL);
+          $edad_filter = filter_var($edad, FILTER_SANITIZE_NUMBER_INT);
+          
+          ?>
+          
+          &lt!DOCTYPE html>
+          &lthtml lang="en">
+          
+          &lthead>
+              &ltmeta charset="UTF-8">
+              &ltmeta http-equiv="X-UA-Compatible" content="IE=edge">
+              &ltmeta name="viewport" content="width=device-width, initial-scale=1.0">
+              &lttitle>Document&lt/title>
+          &lt/head>
+          
+          &ltbody>
+              &ltp>
+                  &lt?= $username ?>&ltbr>
+                  &lt?= $nombre ?>&ltbr>
+                  &lt?= $email ?>&ltbr>
+                  &lt?= $edad ?>&ltbr>
+                  htmlentities: &lt?= $htmlentities ?>&ltbr>
+                  addslashes: &lt?= $addslashes ?>&ltbr>
+                  only_letters: &lt?= $only_letters ?>&ltbr>
+                  only_numbers: &lt?= $only_numbers ?>&ltbr>
+                  email_filter: &lt?= $email_filter ?>&ltbr>
+                  edad_filter: &lt?= $edad_filter ?>&ltbr>
+              &lt/p>
+          &lt/body>
+          
+          &lt/html>
+        </pre>
+      </article>
+    </section>
+
+    <hr>
+    
+    <section class="row">
+      <article class="col">
+        <h2>Sección 19 de 24 - Validando datos</h2>
+        <pre class="prettyprint">
+                
+          &lt?php
+
+          $is_float = filter_var("esto no es un float", FILTER_VALIDATE_FLOAT, FILTER_FLAG_ALLOW_THOUSAND);
+          
+          var_dump($is_float);
+          
+          $is_int = filter_var("esto no es un numero", FILTER_VALIDATE_INT);
+          
+          var_dump($is_int);
+          
+          $is_ip = filter_var("00.0.0.5", FILTER_VALIDATE_IP);
+          
+          var_dump($is_ip);
+          
+          $is_url = filter_var("https://platzi.com/", FILTER_VALIDATE_URL);
+          
+          var_dump($is_url);
+          
+          $is_email = filter_var("https://platzi.com/", FILTER_VALIDATE_EMAIL);
+          
+          var_dump($is_email);
+        </pre>
+      </article>
+    </section>
+
+    <hr>
+    
+    <section class="row">
+      <article class="col">
+        <h2>Sección 20 de 24 - Creando el maquetado</h2>
+        <pre class="prettyprint">
+                
+          &lt!DOCTYPE html>
+          &lthtml lang="en">
+          &lthead>
+              &ltmeta charset="UTF-8">
+              &ltmeta http-equiv="X-UA-Compatible" content="IE=edge">
+              &ltmeta name="viewport" content="width=device-width, initial-scale=1.0">
+              &ltlink rel="stylesheet" href="020-style.css">
+              &lttitle>Formulario de contacto&lt/title>
+          &lt/head>
+          &ltbody>
+          
+              &ltdiv class="alert danger">
+                  &ltspan>Surgió un problema&lt/span>
+              &lt/div>
+          
+              &ltdiv class="alert success">
+                  &ltspan>¡Mensaje enviado con éxito!&lt/span>
+              &lt/div>
+          
+              &ltform action="#">
+          
+                  &lth1>¡Contáctanos!&lt/h1>
+          
+                  &ltdiv class="input-group">
+                      &ltlabel for="name">Nombre:&lt/label>
+                      &ltinput type="text" name="name" id="name">
+                  &lt/div>
+          
+                  &ltdiv class="input-group">
+                      &ltlabel for="email">Correo:&lt/label>
+                      &ltinput type="email" name="email" id="email">
+                  &lt/div>
+          
+                  &ltdiv class="input-group">
+                      &ltlabel for="subject">Asunto:&lt/label>
+                      &ltinput type="text" name="subject" id="subject">
+                  &lt/div>
+          
+                  &ltdiv class="input-group">
+                      &ltlabel for="message">Mensaje:&lt/label>
+                      &lttextarea name="message" id="message">&lt/textarea>
+                  &lt/div>
+          
+                  &ltdiv class="button-container">
+                      &ltbutton type="submit">Enviar&lt/button>
+                  &lt/div>
+          
+                  &ltdiv class="contact-info">
+                      
+                      &ltdiv class="info">
+                          &ltspan>&lti class="fas fa-map-marker-alt">&lt/i> 13 Saw Mill Circle, North Olmested.&lt/span>
+                      &lt/div>
+          
+                      &ltdiv class="info">
+                          &ltspan>&lti class="fas fa-phone">&lt/i> +1 123 456 7890&lt/span>
+                      &lt/div>
+          
+                  &lt/div>
+          
+              &lt/form>
+          
+              &ltscript src="https://kit.fontawesome.com/bbff992efd.js" crossorigin="anonymous">&lt/script>
+              
+          &lt/body>
+          &lt/html>
+        </pre>
+
+        <pre class="prettyprint">
+                
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+            background: #e5e5e5;
+            font-family: 'Roboto', sans-serif;
+        }
+        
+        .alert {
+            margin-bottom: 15px;
+            padding: 20px 30px;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -ms-border-radius: 5px;
+            -o-border-radius: 5px;
+        }
+        
+        .alert.success {
+            background: #59e5a2;
+        }
+        
+        .alert.danger {
+            background: #e55961;
+        }
+        
+        form {
+            position: relative;
+            background: #fff;
+            padding: 30px;
+            margin-bottom: 100px;
+            border-radius: 6px;
+            -webkit-border-radius: 6px;
+            -moz-border-radius: 6px;
+            -ms-border-radius: 6px;
+            -o-border-radius: 6px;
+        }
+        
+        form h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        textarea {
+            min-height: 75px;
+            resize: none;
+        }
+        
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+        }
+        
+        .input-group label {
+            margin-bottom: 5px;
+        }
+        
+        .input-group input,
+        .input-group textarea {
+            padding: 7px;
+            outline: none;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 0 0 #fff;
+            border-radius: 5px;
+            transition: 0.2s box-shadow ease;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            -ms-border-radius: 5px;
+            -o-border-radius: 5px;
+            -webkit-transition: 0.2s box-shadow ease;
+            -moz-transition: 0.2s box-shadow ease;
+            -ms-transition: 0.2s box-shadow ease;
+            -o-transition: 0.2s box-shadow ease;
+        }
+        
+        .input-group input:focus,
+        .input-group textarea:focus {
+            box-shadow: 0 0 0 3px rgba(151, 115, 254, 0.25);
+        }
+        
+        .button-container {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .button-container button {
+            border: none;
+            outline: none;
+            padding: 8px 20px;
+            background: #7392fe;
+            color: #fff;
+            border-radius: 3px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s all ease;
+            -webkit-transition: 0.3s all ease;
+            -moz-transition: 0.3s all ease;
+            -ms-transition: 0.3s all ease;
+            -o-transition: 0.3s all ease;
+        }
+        
+        .button-container button:hover {
+            background: #577bfb;
+        }
+        
+        .button-container button:focus {
+            box-shadow: 0 0 0 3px rgba(115, 146, 254, 0.25);
+        }
+        
+        form::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: #7e5dde;
+            display: inline-block;
+            width: 100%;
+            height: 10px;
+            border-top-left-radius: 6px;
+            border-top-right-radius: 6px;
+        }
+        
+        form .contact-info {
+            position: absolute;
+            top: 96%;
+            left: 50%;
+            display: flex;
+            width: calc(100% + 60px);
+            font-size: 13px;
+            background: #9773fe;
+            color: #fff;
+            border-radius: 3px;
+            transform: translateX(-50%);
+            -webkit-transform: translateX(-50%);
+            -moz-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+            -o-transform: translateX(-50%);
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            -ms-border-radius: 3px;
+            -o-border-radius: 3px;
+        }
+        
+        form .contact-info .info {
+            display: flex;
+            align-items: center;
+            width: 50%;
+            padding: 30px;
+        }
+        
+        form, .alert {
+            min-width: 80%;
+        }
+        
+        @media (min-width: 450px) {
+            
+            form, .alert {
+                min-width: 370px
+            }
+        
+        }
+        </pre>
+      </article>
+    </section>
+
+    <hr>
+    
+    <section class="row">
+      <article class="col">
+        <h2>Sección 21 de 24 - Haciendo la lógica de recepción del formulario</h2>
+        <pre class="prettyprint">
+                
+          &lt?php
+          function validate($name, $email, $subject, $message)
+          {
+              return !empty($name) && !empty($email) && !empty($subject) && !empty($message);
+          }
+          
+          $status = "";
+          
+          if (isset($_POST["form"])) {
+          
+              // if ( validate(...$_POST) ) {
+              if (validate($_POST["name"], $_POST["email"], $_POST["subject"], $_POST["message"])) {
+                  $name = $_POST["name"];
+                  $email = $_POST["email"];
+                  $subject = $_POST["subject"];
+                  $message = $_POST["message"];
+          
+                  $status = "success";
+              } else {
+                  $status = "danger";
+              }
+          }
+          
+          ?>
+          
+          &lt!DOCTYPE html>
+          &lthtml lang="en">
+          
+          &lthead>
+              &ltmeta charset="UTF-8">
+              &ltmeta http-equiv="X-UA-Compatible" content="IE=edge">
+              &ltmeta name="viewport" content="width=device-width, initial-scale=1.0">
+              &ltlink rel="stylesheet" href="020-style.css">
+              &lttitle>Formulario de contacto&lt/title>
+          &lt/head>
+          
+          &ltbody>
+          
+              &lt?php if ($status == "danger") : ?>
+          
+                  &ltdiv class="alert danger">
+                      &ltspan>Surgió un problema&lt/span>
+                  &lt/div>
+          
+              &lt?php endif; ?>
+          
+              &lt?php if ($status == "success") : ?>
+          
+                  &ltdiv class="alert success">
+                      &ltspan>¡Mensaje enviado con éxito!&lt/span>
+                  &lt/div>
+          
+              &lt?php endif; ?>
+          
+              &ltform action="&lt?php echo $_SERVER["PHP_SELF"]; ?>" method="POST">
+          
+                  &lth1>¡Contáctanos!&lt/h1>
+          
+                  &ltdiv class="input-group">
+                      &ltlabel for="name">Nombre:&lt/label>
+                      &ltinput type="text" name="name" id="name">
+                  &lt/div>
+          
+                  &ltdiv class="input-group">
+                      &ltlabel for="email">Correo:&lt/label>
+                      &ltinput type="email" name="email" id="email">
+                  &lt/div>
+          
+                  &ltdiv class="input-group">
+                      &ltlabel for="subject">Asunto:&lt/label>
+                      &ltinput type="text" name="subject" id="subject">
+                  &lt/div>
+          
+                  &ltdiv class="input-group">
+                      &ltlabel for="message">Mensaje:&lt/label>
+                      &lttextarea name="message" id="message">&lt/textarea>
+                  &lt/div>
+          
+                  &ltdiv class="button-container">
+                      &ltbutton name="form" type="submit">Enviar&lt/button>
+                  &lt/div>
+          
+                  &ltdiv class="contact-info">
+          
+                      &ltdiv class="info">
+                          &ltspan>&lti class="fas fa-map-marker-alt">&lt/i> 13 Saw Mill Circle, North Olmested.&lt/span>
+                      &lt/div>
+          
+                      &ltdiv class="info">
+                          &ltspan>&lti class="fas fa-phone">&lt/i> +1 123 456 7890&lt/span>
+                      &lt/div>
+          
+                  &lt/div>
+          
+              &lt/form>
+          
+              &ltscript src="https://kit.fontawesome.com/bbff992efd.js" crossorigin="anonymous">&lt/script>
+          
+          &lt/body>
+          
+          &lt/html>
+        </pre>
+      </article>
+    </section>
+
+    <hr>
+    
+    <section class="row">
+      <article class="col">
+        <h2>Sección 22 de 24 - Integrando PHPMailer</h2>
+        <pre class="prettyprint">
+                
+          &lt?php
+          require("022-mail.php");
+          function validate($name, $email, $subject, $message)
+          {
+              return !empty($name) && !empty($email) && !empty($subject) && !empty($message);
+          }
+          
+          $status = "";
+          
+          if (isset($_POST["form"])) {
+          
+              // if ( validate(...$_POST) ) {
+              if (validate($_POST["name"], $_POST["email"], $_POST["subject"], $_POST["message"])) {
+                  $name = $_POST["name"];
+                  $email = $_POST["email"];
+                  $subject = $_POST["subject"];
+                  $message = $_POST["message"];
+          
+                  $body = "$name &lt$email> te envia el siguiente mensaje: &ltbr>&ltbr> $message";
+          
+                  // Mandar el correo
+                  sendMail($subject, $body, $email, $name, true);
+          
+                  $status = "success";
+              } else {
+                  $status = "danger";
+              }
+          }
+          
+          ?>
+          
+          &lt!DOCTYPE html>
+          &lthtml lang="en">
+          
+          &lthead>
+              &ltmeta charset="UTF-8">
+              &ltmeta http-equiv="X-UA-Compatible" content="IE=edge">
+              &ltmeta name="viewport" content="width=device-width, initial-scale=1.0">
+              &ltlink rel="stylesheet" href="020-style.css">
+              &lttitle>Formulario de contacto&lt/title>
+          &lt/head>
+          
+          &ltbody>
+          
+              &lt?php if ($status == "danger") : ?>
+          
+                  &ltdiv class="alert danger">
+                      &ltspan>Surgió un problema&lt/span>
+                  &lt/div>
+          
+              &lt?php endif; ?>
+          
+              &lt?php if ($status == "success") : ?>
+          
+                  &ltdiv class="alert success">
+                      &ltspan>¡Mensaje enviado con éxito!&lt/span>
+                  &lt/div>
+          
+              &lt?php endif; ?>
+          
+              &ltform action="&lt?php echo $_SERVER["PHP_SELF"]; ?>" method="POST">
+          
+                  &lth1>¡Contáctanos!&lt/h1>
+          
+                  &ltdiv class="input-group">
+                      &ltlabel for="name">Nombre:&lt/label>
+                      &ltinput type="text" name="name" id="name">
+                  &lt/div>
+          
+                  &ltdiv class="input-group">
+                      &ltlabel for="email">Correo:&lt/label>
+                      &ltinput type="email" name="email" id="email">
+                  &lt/div>
+          
+                  &ltdiv class="input-group">
+                      &ltlabel for="subject">Asunto:&lt/label>
+                      &ltinput type="text" name="subject" id="subject">
+                  &lt/div>
+          
+                  &ltdiv class="input-group">
+                      &ltlabel for="message">Mensaje:&lt/label>
+                      &lttextarea name="message" id="message">&lt/textarea>
+                  &lt/div>
+          
+                  &ltdiv class="button-container">
+                      &ltbutton name="form" type="submit">Enviar&lt/button>
+                  &lt/div>
+          
+                  &ltdiv class="contact-info">
+          
+                      &ltdiv class="info">
+                          &ltspan>&lti class="fas fa-map-marker-alt">&lt/i> 13 Saw Mill Circle, North Olmested.&lt/span>
+                      &lt/div>
+          
+                      &ltdiv class="info">
+                          &ltspan>&lti class="fas fa-phone">&lt/i> +1 123 456 7890&lt/span>
+                      &lt/div>
+          
+                  &lt/div>
+          
+              &lt/form>
+          
+              &ltscript src="https://kit.fontawesome.com/bbff992efd.js" crossorigin="anonymous">&lt/script>
+          
+          &lt/body>
+          
+          &lt/html>
+        </pre>
+
+        <pre class="prettyprint">
+                
+          &lt?php
+
+          require("vendor/autoload.php");
+          
+          use PHPMailer\PHPMailer\PHPMailer;
+          
+          function sendMail($subject, $body, $email, $name, $html = false) {
+          
+              // Configuración inicial de nuestro servidor de correos
+              $phpmailer = new PHPMailer();
+              $phpmailer->isSMTP();
+              $phpmailer->Host = 'smtp.mailtrap.io';
+              $phpmailer->SMTPAuth = true;
+              $phpmailer->Port = 2525;
+              $phpmailer->Username = '4ca1ce943d0ba1';
+              $phpmailer->Password = 'dcb5849e9c1c37';
+          
+              //  Añadiendo destinatarios
+              $phpmailer->setFrom('mark@facebook.com', 'Mark Zuckerberg');
+              $phpmailer->addAddress($email, $name); 
+          
+              // Definiendo el contenido de mi email
+              $phpmailer->isHTML($html);                                  //Set email format to HTML
+              $phpmailer->Subject = $subject;
+              $phpmailer->Body    = $body;
+          
+              // Mandar el correo
+              $phpmailer->send();
+              
+          }
+          
+          ?>
+        </pre>
+      </article>
+    </section>
+
+    <hr>
+    
+    <section class="row">
+      <article class="col">
+        <h2>Sección 23 de 24 - Implementando el servidor de correos de Gmail</h2>
+        
+      </article>
+    </section>
+
+    <hr>
+    
+    <section class="row">
+      <article class="col">
+        <h2>Sección 23 de 24 - Es tu turno de poner todo en práctica</h2>
+        
+      </article>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
